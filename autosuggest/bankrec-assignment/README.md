@@ -19,10 +19,10 @@ We might just go ahead and help the company do future bookings of _“McDonald's
 
 __A few things to notice:__
 
-* The same text from the bank statements might lead to two different accounts. An example of this is that you might buy both food for your employees (which you might want to put on the employee catering account) and chocolate (which you might want to put on the gifts and flowers account) in the same shop.
+* The same text from the bank statements might lead to two different accounts. An example of this is that you might buy both food for your employees (which you might want to put on the _Employee catering account_) and chocolate (which you might want to put on the _Gifts and flowers account_) in the same shop.
 * Each company have their own chart of accounts. However many companies have a chart of account that varies only a little from the e-conomic default chart of accounts.
-* Two companies that have the same chart of account might not agree how certain expenses should be booked. An example of this might be sandwiches bought for a meeting with business partners. One company might always put this on the employee catering account, another one might always put it on the meetings account, and a third might even have a sandwiches for meetings with business partners account.
-* Each account has a number. There are no restrictions on these account numbers besides that an account number is unique within a company. So the travel expense account in one company might have the same number as the employee catering account in another company.
+* Two companies that have the same chart of accounts might not agree how certain expenses should be booked. An example of this might be sandwiches bought for a meeting with business partners. One company might always put this on the _Employee catering account_, another one might always put it on the _Meetings account_, and a third might even have a _Sandwiches for meetings with business partners account_.
+* Each account has a number. There are no restrictions on these account numbers besides that an account number is unique within a company. So the _Travel expense account_ in one company might have the same number as the _Employee catering account_ in another company.
 
 ## Part 1 - Per company prediction
 
@@ -36,7 +36,7 @@ Your solution to this task you will be judged on criteria related to the product
 
 Alright, in Part 1 above you developed a predictive model to predict accounts based on each company’s own data. What if we wanted to utilize all the data we have across all 100.000 companies? Then we would also be able to help in situations where we get new kind of expenses that we have never seen before within a company. But how should we even tackle the problem of constructing such a model?
 
-In this part you are not expected to implement a predictive model, but instead you are expected to devise and propose a theoretical solution to the problem.
+In this part you are _not_ expected to implement a predictive model, but instead you are expected to devise and propose a theoretical solution to the problem.
 
 Your solution to this task you will be judged on criteria related to the value that you are bringing to the team, eg. creativity, knowledge within mathematical modeling, communicating your ideas, ability to discuss pros and cons of different solutions, etc.
 
@@ -87,7 +87,7 @@ Due to privacy reasons the amounts has been bucketed and the texts has been obfu
 
     data.to_csv(output_filename)
 
-The data can be found in `bank_expenses_obfuscated.csv`
+The data is a zipped `.csv` file called `bank_expenses_obfuscated.csv.zip`. Youe will need [git lfs](https://git-lfs.github.com/) to fetch it.
 
 ## Got stuck?
 You can always email Helge (helge.munk.jacobsen@visma.com) and ask for advice or just ask question to ensure you correctly understood the task. This will not be seen as a sign of weakness, to the contrary it shows that fully understanding the problem is important to you.
