@@ -45,13 +45,49 @@ The dataset consist of expenses from 100 random companies. For each company we p
 
 Due to privacy reasons the amounts has been bucketed and the texts has been obfuscated using the following function:
 
-// TODO CODE HERE
+    data = query(limit = 100) # Pandas DataFrame
 
-Here is a small sample of what the data looks like:
+    def short_hash(word):
+        try:
+            int(word)
+            typ = 'int'
+        except:
+            typ = 'str'
+        bytes_ = word.encode() + secret_salt
+        sha_word = hashlib.sha1(bytes_).hexdigest()
+        return '{}:{}'.format(typ, sha_word[:7])
 
-// TODO DATA SAMPLE HERE
+    def obfuscate_text(string_):
+        return " ".join([short_hash(w) for w in string_.split()])
 
-// TODO MENTION WHERE THE DATA IS LOCATED
+    def modify_row(row):
+        # Translate AccountTypeName to english
+        row['AccountTypeName'] = 'Profit and Loss' \
+            if row['AccountTypeName'] == 'Drift' else 'Balance'
+        # Obfuscate AccountName
+        row['AccountName'] = short_hash(row['AccountName'])
+        # Obfuscate BankEntryText
+        row['BankEntryText'] = obfuscate_text(row['BankEntryText'])
+        # Obfuscate CompanyId
+        row['CompanyId'] = short_hash(row['CompanyId'])
+
+        p_bar.update()
+        return row
+
+    data = data.apply(modify_row, axis=1)
+
+    # Bin BankEntryAmount
+    data['BankEntryAmount'] = pd.cut(
+        data['BankEntryAmount'],
+        bins=[float('-inf'), -10000, -1000, -100, -10, 0, 10, 100, 1000,
+              10000, float('inf')],
+        labels=['big negative', '> -10000', '> -1000', '> -100', '> -10',
+                '< 10', '< 100', '< 1000', '< 10000', 'big positive']
+    )
+
+    data.to_csv(output_filename)
+
+The data can be found in `bank_expenses_obfuscated.csv`
 
 ## Got stuck?
 You can always email Helge (helge.munk.jacobsen@visma.com) and ask for advice or just ask question to ensure you correctly understood the task. This will not be seen as a sign of weakness, to the contrary it shows that fully understanding the problem is important to you.
