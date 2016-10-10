@@ -54,7 +54,7 @@ Due to privacy reasons the amounts has been bucketed and the texts has been obfu
         except:
             typ = 'str'
         bytes_ = word.encode() + secret_salt
-        sha_word = hashlib.sha1(bytes_).hexdigest()
+        sha_word = hashlib.sha512(bytes_).hexdigest()
         return '{}:{}'.format(typ, sha_word[:7])
 
     def obfuscate_text(string_):
