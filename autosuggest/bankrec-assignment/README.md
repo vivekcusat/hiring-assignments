@@ -15,7 +15,7 @@ But what if we could make this process even smoother by learning how the expense
     “Andersen’s cleaning service”   --> Maintenance account
     “McDonald's Nørrebro”           --> Employee catering account
 
-We might just go ahead and help the company do future bookings of _“McDonald's Nørrebro”_, _“Copenhagen Cleaning Company”_ or maybe we might even be able to help with _“Burger King Kastrup Airport”_, if we look at how other companies usually do their bookkeeping.
+We might just go ahead and help the company do future bookings of _“McDonald's Nørrebro”_, or maybe we can assist the company with new like _“Copenhagen Cleaning Company”_ if we build a clever model, or maybe we might even be able to help with _“Burger King Kastrup Airport”_ if we look at how other companies usually do their bookkeeping.
 
 __A few things to notice:__
 
@@ -34,7 +34,7 @@ Your solution to this task you will be judged on criteria related to the product
 
 ## Part 2 - Can we do better?
 
-Alright, in Part 1 above you developed a predictive model to predict accounts based on each company’s own data. What if we wanted to utilize all the data we have across all 100.000 companies? Then we would also be able to help in situations where we get new kind of expenses that we have never seen before within a company. But how should we even tackle the problem of constructing such a model?
+Alright, in Part 1 above you developed a predictive model to predict accounts based on each company’s own data. What if we wanted to utilize all the data we have across all 100.000 companies? Then we would also be able to help companies that has no or little data. But how should we even tackle the problem of constructing such a model?
 
 In this part you are _not_ expected to implement a predictive model, but instead you are expected to devise and propose a theoretical solution to the problem.
 
@@ -87,7 +87,7 @@ Due to privacy reasons the amounts has been bucketed and the texts has been obfu
 
     data.to_csv(output_filename)
 
-The data is a zipped `.csv` file called `bank_expenses_obfuscated.csv.zip`. Youe will need [git lfs](https://git-lfs.github.com/) to fetch it.
+The data is a zipped `.csv` file called `bank_expenses_obfuscated.csv.zip`.
 
 ## Got stuck?
 You can always email Helge (helge.munk.jacobsen@visma.com) and ask for advice or just ask question to ensure you correctly understood the task. This will not be seen as a sign of weakness, to the contrary it shows that fully understanding the problem is important to you.
