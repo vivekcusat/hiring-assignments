@@ -112,6 +112,13 @@ Here's the top three rows from the data set:
 | 1 | int:a055470 | 2016-02-29    | str:6cd08e4 int:49fed34 | > -1000         | str:9ce853c | 3115          | Profit and Loss |
 | 2 | int:a055470 | 2016-02-29    | str:38248d2             | > -100          | str:a9f0788 | 2240          | Profit and Loss |
 
+## Guidelines
+We would like to remind you of a few important things:
+- Focus on the right stuff. Don't spend many hours on data wrangling and other stuff that does not show us your true skill-set. Instead, please make a few assumptions, and make sure to tell us about the assumptions you made.
+- We do not judge you on the accuracy of your predictive model, but on your problem solving skills. So don't spend all your time tweeking parameters.
+- Need to know your needs, like the maximum response time at prediction time or the importance of model interpretability? Please, either make up your own assuptions..
+- Use what ever tech stack you feel comfortable using.
+
 ## Got stuck?
 You can always email Helge (helge.munk.jacobsen@visma.com) and ask for advice or just ask question to ensure you correctly understood the task. This will not be seen as a sign of weakness, to the contrary it shows that fully understanding the problem is important to you.
 
