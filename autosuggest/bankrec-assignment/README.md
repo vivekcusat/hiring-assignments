@@ -101,6 +101,16 @@ Due to privacy reasons the amounts has been bucketed and the texts has been obfu
 
 The data is a zipped `.csv` file called `bank_expenses_obfuscated.csv.zip`.
 
+## Data example
+
+Here's the top three rows from the data set:
+
+|   | CompanyId   | BankEntryDate | BankEntryText           | BankEntryAmount | AccountName | AccountNumber | AccountTypeName |
+|---|-------------|---------------|-------------------------|-----------------|-------------|---------------|-----------------|
+| 0 | int:a055470 | 2016-02-29    | str:6cd08e4 int:49fed34 | > -1000         | str:1e82557 | 9900          | Balance         |
+| 1 | int:a055470 | 2016-02-29    | str:6cd08e4 int:49fed34 | > -1000         | str:9ce853c | 3115          | Profit and Loss |
+| 2 | int:a055470 | 2016-02-29    | str:38248d2             | > -100          | str:a9f0788 | 2240          | Profit and Loss |
+
 ## Got stuck?
 You can always email Helge (helge.munk.jacobsen@visma.com) and ask for advice or just ask question to ensure you correctly understood the task. This will not be seen as a sign of weakness, to the contrary it shows that fully understanding the problem is important to you.
 
