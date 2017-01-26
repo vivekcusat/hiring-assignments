@@ -43,15 +43,16 @@ Your solution to this task you will be judged on criteria related to the value t
 ## Description of data
 The dataset consist of expenses from 100 random companies. For each company we provide all expenses that was booked in e-conomic.
 
-__CompanyId:__ The identifyer of the company to help you slice and dice the data in the right way.
-__BankEntryDate (f)__: The date of the financial transaction.
-__BankEntryText (f)__: The text following along with the financial transaction. This is typically machine generated, but in case of manual transactions they may be manually written by a human.
-__BankEntryAmount (f)__: The amount of the financial transaction. Expenses are negative, earnings are positive.
-__AccountNumber (target)__: The account number. The uniquely identifies an account, and can therefore be used as the target variable / the class that we want to predict.
-__AccountName__: The name of the account.
-__AccountTypeName__: The type of the account.
+Description of each column in the dataset:
+- __CompanyId:__ The identifyer of the company to help you slice and dice the data in the right way.
+- __BankEntryDate *(feature)*__: The date of the financial transaction.
+- __BankEntryText *(feature)*__: The text following along with the financial transaction. This is typically machine generated, but in case of manual transactions they may be manually written by a human.
+- __BankEntryAmount *(feature)*__: The amount of the financial transaction. Expenses are negative, earnings are positive.
+- __AccountNumber *(target)*__: The account number. The uniquely identifies an account, and can therefore be used as the target variable / the class that we want to predict.
+- __AccountName__: The name of the account.
+- __AccountTypeName__: The type of the account.
 
-Columns marked by _(f)_ Can optionally be used as a feature in your predictive model. All of these features are typically what you see when you look at your bank statement. The _AccountNumber_ is your target variable. The _AccountName_ and the _AccountTypeName_ are properties of the account, which is why that are known when the account number is known, and hence not of direct interest to the prediction problem.
+Columns marked by _(feature)_ Can optionally be used as a feature in your predictive model. All of these features are typically what you see when you look at your bank statement. The _AccountNumber_ is your target variable. The _AccountName_ and the _AccountTypeName_ are properties of the account, which is why that are known when the account number is known, and hence not of direct interest to the prediction problem.
 
 The rows are sorted first by _BankEntryDate_, then by _CompanyId_.
 
