@@ -46,7 +46,7 @@ The dataset consist of expenses from 100 random companies. For each company we p
 Description of each column in the dataset:
 - __CompanyId:__ The identifyer of the company to help you slice and dice the data in the right way.
 - __BankEntryDate *(feature)*__: The date of the financial transaction.
-- __BankEntryText *(feature)*__: The text following along with the financial transaction. This is typically machine generated, but in case of manual transactions they may be manually written by a human.
+- __BankEntryText *(feature)*__: The text following along with the financial transaction. This is typically machine generated, but in case of manual transactions they may be manually written by a human. _Please note that the text has been split into words before they have been hashed._
 - __BankEntryAmount *(feature)*__: The amount of the financial transaction. Expenses are negative, earnings are positive.
 - __AccountNumber *(target)*__: The account number. The uniquely identifies an account, and can therefore be used as the target variable / the class that we want to predict.
 - __AccountName__: The name of the account.
