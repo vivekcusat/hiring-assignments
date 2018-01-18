@@ -2,10 +2,10 @@
 
 This task is intended for candidates applying for a Data Science position at e-conomic. The assignment contains real data and directly reflects the actual challenges we face at e-conomic when we are trying to apply machine learning to the field of automating accounting processes.
 
-To limit the workload the task has been split into two parts. In the first part you are expected to write code, build predictive models, measure the quality of these models and document your results. In the second part you are not expected to implement a predictive model, but instead you are expected to devise and propose a theoretical solution to the problem.
+The assignment is split into two parts. In the first part you are expected to write code, build predictive models, measure the quality of these models and document your results. In the second part you are not expected to implement a predictive model, but instead you are expected to devise and propose a theoretical solution to the problem.
 
 ## The problem
-Companies often have a lot of expenses. Each payment of these expenses is in accounting terms called a financial transaction which should be entered into the financial books. But where? This is the job of the accountant to figure out. An expense for paint might go to the account for renovation, and an expense for a taxi ride might go to the account for travel expenses.
+Companies often have a lot of expenses. Each payment of these expenses is in accounting terms called a financial transaction which should be entered into the financial books. But where? This is the job of the accountant to figure out. An expense for paint might go to the maintenance account, and an expense for a taxi ride might go to the account for travel expenses.
 
 In e-conomic it is possible to import your bank statements and use these to create the financial transactions, so all you have to do is to import the bank statements, and decide on which account you want to book each expense ..and you’re done.
 
@@ -34,7 +34,7 @@ Your solution to this task you will be judged on criteria related to the product
 
 ## Part 2 - Can we do better?
 
-Alright, in Part 1 above you developed a predictive model to predict accounts based on each company’s own data. What if we wanted to utilize all the data we have across all 100.000 companies? Then we would also be able to help companies that has no or little data. But how should we even tackle the problem of constructing such a model?
+Alright, in Part 1 above you developed a predictive model to predict accounts based on each company’s own data. What if we wanted to utilize all the data we have across all 100.000 companies? Then we would also be able to help companies that has no or little data. But how should we even tackle the problem of constructing such a model? (We do not regard this as an easy question, and there is no single right solution.)
 
 In this part you are _not_ expected to implement a predictive model, but instead you are expected to devise and propose a theoretical solution to the problem.
 
@@ -52,7 +52,7 @@ Description of each column in the dataset:
 - __AccountName__: The name of the account.
 - __AccountTypeName__: The type of the account.
 
-Columns marked by _(feature)_ Can optionally be used as a feature in your predictive model. All of these features are typically what you see when you look at your bank statement. The _AccountNumber_ is your target variable. The _AccountName_ and the _AccountTypeName_ are properties of the account, which is why that are known when the account number is known, and hence not of direct interest to the prediction problem.
+Columns marked by _(feature)_ Can optionally be used as a feature in your predictive model. All of these features are typically what you see when you look at your bank statement. The _AccountNumber_ is your target variable. The _AccountName_ and the _AccountTypeName_ are properties of the account, and hence not of direct interest to the prediction problem, but if you can come up with creative ways of using it, then feel free to do so.
 
 The rows are sorted first by _BankEntryDate_, then by _CompanyId_.
 
@@ -116,12 +116,12 @@ Here's the top three rows from the data set:
 We would like to remind you of a few important things:
 - Focus on the right stuff. Don't spend many hours on data wrangling and other stuff that does not show us your true skill-set. Instead, please make a few assumptions, and make sure to tell us about the assumptions you made.
 - We do not judge you on the accuracy of your predictive model, but on your problem solving skills. So don't spend all your time tweeking parameters.
-- Need to know your needs, like the maximum response time at prediction time or the importance of model interpretability? Please, either make up your own assuptions..
+- If you feel that you want to know more about the usecase so the you can better derive the external requirements (like the maximum response time at prediction time, or the importance of model interpretability)? Then you can either make up your own requirements assumptions (remember to tell us about these), or ask us.
 - Use what ever tech stack you feel comfortable using.
 
 ## Got stuck?
-You can always email Helge (helge.munk.jacobsen@visma.com) and ask for advice or just ask question to ensure you correctly understood the task. This will not be seen as a sign of weakness, to the contrary it shows that fully understanding the problem is important to you.
+You can always email us and ask for advice or just ask question to ensure you correctly understood the task. This will not be seen as a sign of weakness, to the contrary it shows that fully understanding the problem is important to you.
 
 ## Suggestions for improvements?
 
-Please help us improve this assignment. Feel free to make a pull request!
+Please help us improve this assignment by suggesting changes, or making a pull request.
