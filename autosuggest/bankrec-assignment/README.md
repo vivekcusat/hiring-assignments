@@ -32,6 +32,8 @@ In this part you are expected to write code, build predictive models, measure th
 
 Your solution to this task you will be judged on criteria related to the product that you will be delivering when working at e-conomic, eg. among other things: coding style, approach to problem solving, guiding the research by data driven decisions, documentation of your results, choice of quality measure, etc.
 
+Please note that this is not a classical text book example where a pretty solution is known to exist. You might not be satisfied with your results, and there might not even exist a solution that would be good enough to go into a real product. The goal of the exercise is not to arrive at a nice model, the goal is to show us what approach you take.
+
 ## Part 2 - Can we do better?
 
 Alright, in Part 1 above you developed a predictive model to predict accounts based on each company’s own data. What if we wanted to utilize all the data we have across all 100.000 companies? Then we would also be able to help companies that has no or little data. But how should we even tackle the problem of constructing such a model? (We do not regard this as an easy question, and there is no single right solution.)
@@ -114,6 +116,7 @@ Here's the top three rows from the data set:
 
 ## Guidelines
 We would like to remind you of a few important things:
+- **Important:** This data it real. An acceptable model might not exist, so don't feel bad if your results are disappointing.
 - Focus on the right stuff. Don't spend many hours on data wrangling and other stuff that does not show us your true skill-set. Instead, please make a few assumptions, and make sure to tell us about the assumptions you made.
 - We do not judge you on the accuracy of your predictive model, but on your problem solving skills. So don't spend all your time tweeking parameters.
 - If you feel that you want to know more about the usecase so the you can better derive the external requirements (like the maximum response time at prediction time, or the importance of model interpretability)? Then you can either make up your own requirements assumptions (remember to tell us about these), or ask us.
