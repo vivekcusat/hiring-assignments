@@ -4,8 +4,12 @@
 package imagescaler
 
 import (
+	context "context"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
+	grpc "google.golang.org/grpc"
+	codes "google.golang.org/grpc/codes"
+	status "google.golang.org/grpc/status"
 	math "math"
 )
 
@@ -215,4 +219,84 @@ var fileDescriptor_ecf0878b123623e2 = []byte{
 	0x32, 0x8d, 0xa2, 0x61, 0x2a, 0xc1, 0x86, 0x09, 0xf9, 0x70, 0x71, 0x21, 0x9c, 0x2e, 0x24, 0x87,
 	0x62, 0x11, 0x46, 0x90, 0x48, 0xc9, 0xe0, 0x94, 0x2f, 0xc8, 0xa9, 0x54, 0x62, 0x48, 0x62, 0x03,
 	0x87, 0xad, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0x3f, 0x4c, 0xb7, 0xbe, 0x6e, 0x01, 0x00, 0x00,
+}
+
+// Reference imports to suppress errors if they are not otherwise used.
+var _ context.Context
+var _ grpc.ClientConn
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the grpc package it is being compiled against.
+const _ = grpc.SupportPackageIsVersion4
+
+// ImageScalerClient is the client API for ImageScaler service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
+type ImageScalerClient interface {
+	ScaleImage(ctx context.Context, in *ScaleImageRequest, opts ...grpc.CallOption) (*ScaleImageReply, error)
+}
+
+type imageScalerClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewImageScalerClient(cc *grpc.ClientConn) ImageScalerClient {
+	return &imageScalerClient{cc}
+}
+
+func (c *imageScalerClient) ScaleImage(ctx context.Context, in *ScaleImageRequest, opts ...grpc.CallOption) (*ScaleImageReply, error) {
+	out := new(ScaleImageReply)
+	err := c.cc.Invoke(ctx, "/imagescaler.ImageScaler/ScaleImage", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// ImageScalerServer is the server API for ImageScaler service.
+type ImageScalerServer interface {
+	ScaleImage(context.Context, *ScaleImageRequest) (*ScaleImageReply, error)
+}
+
+// UnimplementedImageScalerServer can be embedded to have forward compatible implementations.
+type UnimplementedImageScalerServer struct {
+}
+
+func (*UnimplementedImageScalerServer) ScaleImage(ctx context.Context, req *ScaleImageRequest) (*ScaleImageReply, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ScaleImage not implemented")
+}
+
+func RegisterImageScalerServer(s *grpc.Server, srv ImageScalerServer) {
+	s.RegisterService(&_ImageScaler_serviceDesc, srv)
+}
+
+func _ImageScaler_ScaleImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ScaleImageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ImageScalerServer).ScaleImage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/imagescaler.ImageScaler/ScaleImage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ImageScalerServer).ScaleImage(ctx, req.(*ScaleImageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _ImageScaler_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "imagescaler.ImageScaler",
+	HandlerType: (*ImageScalerServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "ScaleImage",
+			Handler:    _ImageScaler_ScaleImage_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "proto/api.proto",
 }
