@@ -37,8 +37,8 @@ Create you own micro-service to do the image processing, seperate from the API s
 * Contain an API definition in a seperate protobuf file
 * Handle requests through gRPC
 * Take as part of the request:
-..* Parameters for scaling the image or not
-..* Parameters for Grayscaling the image or not
+⋅⋅* Parameters for scaling the image or not
+⋅⋅* Parameters for Grayscaling the image or not
 
 Alongside your code you should also write a manifest YAML to setup a deployment and service. The deployment should specify that your container should be replicated a least in 2 pods, which should be load-balanced through the service.
 
