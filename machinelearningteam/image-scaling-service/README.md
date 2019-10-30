@@ -9,13 +9,15 @@ We have provided the code for a simple gRPC API for the image service, along wit
 
 ### Local testing
 The sample is written in Go, with the API defined by the Protocol Buffer found in `proto`. You can start the API locally by running:
+
 ```go run cmd/service/service.go```
 
 And test it out with the client:
+
 ```go run cmd/client/client.go test.png```
 
 ### Deploy on Kubernetes
-To deploy the service use the manifests in `manifests``
+To deploy the service use the manifests in `manifests`
 
 ## Your Task
 We would like you to extend this system with actual image pre-processing. 
