@@ -34,11 +34,10 @@ spec:
         prometheus.io/path: "/metrics"
     spec:
       terminationGracePeriodSeconds: 60
-      serviceAccount: imagescaler
       containers:
         - name: imagescaler
           image: # Image needs building
-          command: []
+          command: ["/app/service"]
           args: []
           ports:
             - containerPort: 50051
