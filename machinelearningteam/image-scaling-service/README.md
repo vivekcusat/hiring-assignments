@@ -41,14 +41,15 @@ Create you own micro-service to do the image processing, seperate from the API s
 * Contain an API definition in a seperate protobuf file
 * Handle requests through gRPC
 * Take as part of the request:
-⋅⋅* Parameters for scaling the image or not
-⋅⋅* Parameters for Grayscaling the image or not
+    * The image originally sent to the API
+    * Parameters for scaling the image or not
+    * Parameters for Grayscaling the image or not
 
 Alongside your code you should also write a manifest YAML to setup a deployment and service. The deployment should specify that your container should be replicated a least in 2 pods, which should be load-balanced through the service.
 
 You will also have to add code in the existing API code in `pkg/api/api.go`, so that it will forward the image to your service. You should not have to change the existing API and protobuf. The API should:
 
-* The API should be configurable, such that the desired image size and grayscale options should be supplied at startup. How is up to you
+* The API should be configurable, such that the desired image size and grayscale options should be supplied at startup. How is up to you. You can use 1024x768 as the target size.
 * The API should check the size of the incomming image, and decide what scaling options should be forwarded to your processing service
 
 __A quick question:__
@@ -57,7 +58,7 @@ __A quick question:__
 ### Part 2 - the optional extras
 Beyond the mandatory part we would like you to extend your service in some way. Choose one or more from below:
 
-* Add an option to supply the API with a URL for downloading images (This is already present in the protobuf, but not implemented)
+* Add an option to supply the API with a URL for downloading images (This is already present in the protobuf, but not implemented) - Wether you want to download the image content in the API and send bytes to your service send the URL and download in the service is up to you.
 * Add an option for storing the resulting image in cload storage, like S3/GCS
 * Add stats for number of requests, request times to benchmark the performance of your system
 * Add autoscaling to your service
