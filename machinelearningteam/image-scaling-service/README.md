@@ -30,7 +30,7 @@ And test it out with the client:
 This will take the image in `test.jpg`, send it to the service and and save the output to `out.jpg`
 
 ### Deploy on Kubernetes
-To deploy the service on a Kubernetes cluster use the manifests in `manifests`. The service and deployment in `api.yaml` should spin up the api and get you an external ip to connect to.
+Firstly you need to build the Docker image and push it to some image registry that your cluster has access to. To deploy the service on a Kubernetes cluster use the manifests in `manifests`. The service and deployment in `api.yaml` should spin up the api and get you an external ip to connect to.
 
 ## Your Task
 We would like you to extend this system with actual image pre-processing, and make the system more "production ready".
