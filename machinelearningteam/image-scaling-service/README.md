@@ -1,5 +1,9 @@
-# Assignment used for Data Engineer position
-This task is intended for candidates applying for a Data Engineer position at the Visma Machine Learning team. The assignment is build around the technologies and stack used in the production environments of the team, and the problem a toy version of some of the tasks we face.
+# Assignment used for Software Engineer position
+This task is intended for candidates applying for a Software Engineer position at the Visma Machine Learning team. The assignment is build around the technologies and stack used in the production environments of the team, and the problem a toy version of some of the tasks we face.
+
+
+![Interview](./interview-gopher.png)
+
 
 ## The problem
 Image pre-processing is an important task in many machine learning applications, but can be an intensive task when trying to keep request times low and throughput high. In the VML team we use a micro-service architecture running on Kubernetes, along with autoscaling implementations to acheive image processing systems that scale well.
@@ -29,7 +33,7 @@ This will take the image in `test.jpg`, send it to the service and and save the 
 To deploy the service on a Kubernetes cluster use the manifests in `manifests`. The service and deployment in `api.yaml` should spin up the api and get you an external ip to connect to.
 
 ## Your Task
-We would like you to extend this system with actual image pre-processing, and make the system more "production ready". 
+We would like you to extend this system with actual image pre-processing, and make the system more "production ready".
 
 ### Part 1 - The mandatory part
 Create you own micro-service to do the image processing, seperate from the API service. You can choose to write it in whatever programming language you are comfortable with. We expect it to:
