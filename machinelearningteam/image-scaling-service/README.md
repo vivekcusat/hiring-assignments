@@ -1,5 +1,5 @@
 # Assignment used for Software Engineer position
-This task is intended for candidates applying for a Software Engineer position at the Visma Machine Learning team. The assignment is build around the technologies and stack used in the production environments of the team, and the problem a toy version of some of the tasks we face.
+This task is intended for candidates applying for a Software Engineer position at the Visma Machine Learning team. The assignment is built around the technologies and stack used in the production environments of the team, and the problem is a toy version of some of the tasks we face.
 
 
 ![Interview](./interview-gopher.png)
@@ -8,7 +8,7 @@ This task is intended for candidates applying for a Software Engineer position a
 ## The problem
 Image pre-processing is an important task in many machine learning applications, but can be an intensive task when trying to keep request times low and throughput high. In the VML team we use a micro-service architecture running on Kubernetes, along with autoscaling implementations to acheive image processing systems that scale well.
 
-For this task we want to implement a small service that scales and grayscales incomming images to some nomalized settings, so they could be used as input for a machine learning system.
+For this task we want to implement a small service that scales and grayscales incoming images to some normalized settings, so they could be used as input for a machine learning system.
 
 We also want to be able to horizontally scale the service to account for changing amounts of requests throughout a day.
 
@@ -43,14 +43,14 @@ Create you own micro-service to do the image processing, seperate from the API s
 * Take as part of the request:
     * The image originally sent to the API
     * Parameters for scaling the image or not
-    * Parameters for Grayscaling the image or not
+    * Parameters for grayscaling the image or not
 
-Alongside your code you should also write a manifest YAML to setup a deployment and service. The deployment should specify that your container should be replicated a least in 2 pods, which should be load-balanced through the service.
+Alongside your code you should also write a manifest YAML to setup a deployment and service. The deployment should specify that your container should be replicated at least in 2 pods, which should be load-balanced through the service.
 
-You will also have to add code in the existing API code in `pkg/api/api.go`, so that it will forward the image to your service. You should not have to change the existing API and protobuf. The API should:
+You will also have to add code in the existing API code in `pkg/api/api.go`, so that it will forward the image to your service. You should not have to change the existing API and protobuf. The API should satisfy the following:
 
 * The API should be configurable, such that the desired image size and grayscale options should be supplied at startup. How is up to you. You can use 1024x768 as the target size.
-* The API should check the size of the incomming image, and decide what scaling options should be forwarded to your processing service
+* The API should check the size of the incoming image, and decide what scaling options should be forwarded to your processing service
 
 __A quick question:__
 *What considerations should you have when loadbalancing gRPC requests?*
@@ -58,7 +58,7 @@ __A quick question:__
 ### Part 2 - the optional extras
 Beyond the mandatory part we would like you to extend your service in some way. Choose one or more from below:
 
-* Add an option to supply the API with a URL for downloading images (This is already present in the protobuf, but not implemented) - Wether you want to download the image content in the API and send bytes to your service send the URL and download in the service is up to you.
+* Add an option to supply the API with a URL for downloading images (This is already present in the protobuf, but not implemented) - Whether you want to download the image content in the API and send bytes to your service - or send the URL and download in the service is up to you.
 * Add an option for storing the resulting image in cload storage, like S3/GCS
 * Add stats for number of requests per second, request times etc., to benchmark the performance of your system (Do what you find practical. The API has the basic scaffolding for exporting Prometheus metrics, but you would need to deploy a setup for that)
 * Add autoscaling to your service
