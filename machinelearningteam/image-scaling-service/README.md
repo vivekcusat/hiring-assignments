@@ -60,6 +60,6 @@ Beyond the mandatory part we would like you to extend your service in some way. 
 
 * Add an option to supply the API with a URL for downloading images (This is already present in the protobuf, but not implemented) - Wether you want to download the image content in the API and send bytes to your service send the URL and download in the service is up to you.
 * Add an option for storing the resulting image in cload storage, like S3/GCS
-* Add stats for number of requests, request times to benchmark the performance of your system
+* Add stats for number of requests per second, request times etc., to benchmark the performance of your system (Do what you find practical. The API has the basic scaffolding for exporting Prometheus metrics, but you would need to deploy a setup for that)
 * Add autoscaling to your service
 * More features you think could be relevant...
