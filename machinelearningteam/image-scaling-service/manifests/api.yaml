@@ -51,8 +51,8 @@ spec:
           readinessProbe:
             exec:
               command:
-                ["/bin/grpc_health_probe", "-addr=:50051"]
+                ["/bin/grpc-health-probe", "-addr=:50051"]
           livenessProbe:
             exec:
               command:
-                ["/bin/grpc_health_probe", "-addr=:50051"]
+                ["/bin/grpc-health-probe", "-addr=:50051"]
