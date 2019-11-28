@@ -58,6 +58,6 @@ Beyond the mandatory part we would like you to extend your service in some way.
 
 Choose one or more larger task from below:
 * Add stats for number of requests per second, request times etc., to benchmark the performance of your system (Do what you find practical. The API has the basic scaffolding for exporting Prometheus metrics, but you would need to deploy a setup for that)
-* Add autoscaling to your service. Write a new client that sends requests in a manner that triggers the autoscaling. __A quick question:__ *What considerations should you have when loadbalancing gRPC requests?*
+* Add autoscaling to your service. Write a new client that sends requests in a manner that triggers the autoscaling. __Quick question:__ *What considerations should you have when loadbalancing gRPC requests?*
 
 Lastly, add one or more bonus features. This could be logging, error-handling, cloud storage, authentication, rate-limiting, more image processing options, or anything you think could be relevant. You decide.
