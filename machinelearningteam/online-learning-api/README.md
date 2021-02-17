@@ -17,16 +17,20 @@ Included in this assignment is a dataset of examples of the kinds of transaction
 
 ## Part 1 - Online learning
 
-Build a server that continuously trains a machine learning model. You can use the model contained in `model/model.py` but feel free to construct your own using whatever platform you are familiar with. The quality of the model is not important to the test. 
+Build a server that continuously trains a machine learning model. 
 
-The server has the following endpoints.
+You can use the model contained in `model/model.py` but feel free to construct your own using whatever platform you are familiar with. The quality of the model is not important to the test. 
+
+Use any micro web framework you like to build the server - for Python Flask is an easy option.
+
+The server has a JSON API with the following endpoints.
 
 ### `/sample`
 Accepts POST requests
 
 * Accepts a list of samples from the dataset.  The format is a list of JSON dictionaries using the keys from the CSV file - and strings for all values.
 * Runs a prediction against the most recently trained model - if a model exists yet
-* Store sample + predicted `AccountNumber`
+* Store sample + predicted `AccountNumber` - you don't have to overthink this a json-file is fine
 * Train a new version of the machine learning model using all data received so far as the training set
 
 ### `/predict`
@@ -36,7 +40,11 @@ Accepts POST requests
 * Predict the expected `AccountNumber` for a sample from the dataset
 * Return value is a JSON list containing one string element
 
-## Part 2 - Monitoring
+##  Part 2 - Client
+
+Prepare a client to call the API. Start streaming in data from the dataset. 
+
+## Optional extra - Monitoring
 
 In this part you will add the ability to report the learning progress of the system. 
 
@@ -50,10 +58,8 @@ Accepts GET requests
 [scikit learn](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics) to compute this. 
 * Return the values as a JSON dictionary with the keys `precision` and `recall`
 
-## Part 3 - Client
-
-Prepare a client to call the API. Start streaming in data from the dataset sample by sample. After streaming in 10K entries share the results of `/metrics/1000` with us when presenting. 
-
+Use your client to report the results of `/metrics/1000` after streaming in at least 10K samples.
+ 
 ## Guidelines
 
 ## Got stuck?
