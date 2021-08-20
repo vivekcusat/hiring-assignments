@@ -19,7 +19,7 @@ Included in this assignment is a dataset of examples of the kinds of transaction
 
 Build a server that continuously trains a machine learning model. 
 
-You can use the model contained in `model/model.py` but feel free to construct your own using whatever platform you are familiar with. The quality of the model is not important to the test. 
+You can use the model contained in `model/model.py`. The quality of the model is not important to the test. 
 
 Use any micro web framework you like to build the server - for Python Flask is an easy option.
 
@@ -29,8 +29,9 @@ The server has a JSON API with the following endpoints.
 Accepts POST requests
 
 * Accepts a list of samples from the dataset.  The format is a list of JSON dictionaries using the keys from the CSV file - and strings for all values.
-* Runs a prediction against the most recently trained model - if a model exists yet
-* Store sample + predicted `AccountNumber` - you don't have to overthink this a json-file is fine
+* Runs a prediction against the most recently trained model - if a model exists yet. Don't output to the user. You only need this to compute model metrics later.
+* The samples should be added to the set of previously received samples
+* Store the sample as received + the predicted `AccountNumber` - you don't have to overthink this - opening a file, adding the samples and storing it again is fine
 * Train a new version of the machine learning model using all data received so far as the training set
 
 ### `/predict`
@@ -44,7 +45,7 @@ Accepts POST requests
 
 Prepare a client to call the API. Start streaming in data from the dataset. 
 
-## Optional extra - Monitoring
+##  Part 3 - Monitoring
 
 In this part you will add the ability to report the learning progress of the system. 
 
@@ -136,7 +137,7 @@ The data is a zipped `.csv` file called `bank_expenses_obfuscated.csv.zip`.
 
 ## Data example
 
-Here's the top three rows from the data set:
+Here's the top three rows from the data set. The Account* fields should be considered output variables, not input features.
 
 |   | CompanyId   | BankEntryDate | BankEntryText           | BankEntryAmount | AccountName | AccountNumber | AccountTypeName |
 |---|-------------|---------------|-------------------------|-----------------|-------------|---------------|-----------------|
