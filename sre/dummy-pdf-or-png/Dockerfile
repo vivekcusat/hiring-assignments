@@ -5,7 +5,7 @@ RUN GOOS=linux GOARCH=amd64 go build -o dummy-pdf-or-png
 
 
 
-FROM debian:stretch
+FROM debian:11-slim
 WORKDIR /opt
 COPY --from=build /opt/build/dummy-pdf-or-png /opt/build/dummy.pdf /opt/build/dummy.png /opt/build/corrupt-dummy.pdf /opt/
 CMD ["./dummy-pdf-or-png"]
