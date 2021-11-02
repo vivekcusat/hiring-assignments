@@ -1,11 +1,9 @@
-FROM golang:1.13.4-buster AS build
-WORKDIR /opt/build
+FROM golang:1.17-alpine AS build
+WORKDIR /build
 COPY . .
-RUN GOOS=linux GOARCH=amd64 go build -o dummy-pdf-or-png
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags '-extldflags "-static"' -o dummy-pdf-or-png
 
-
-
-FROM debian:11-slim
-WORKDIR /opt
-COPY --from=build /opt/build/dummy-pdf-or-png /opt/build/dummy.pdf /opt/build/dummy.png /opt/build/corrupt-dummy.pdf /opt/
-CMD ["./dummy-pdf-or-png"]
+FROM scratch
+WORKDIR /
+COPY --from=build /build/dummy-pdf-or-png /build/dummy.pdf /build/dummy.png /build/corrupt-dummy.pdf /
+ENTRYPOINT ["/dummy-pdf-or-png"]
