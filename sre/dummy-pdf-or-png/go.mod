@@ -1,3 +1,3 @@
-module dummy-pdf-or-png
+module github.com/e-conomic/hiring-assignments/sre/dummy-pdf-or-png
 
-go 1.13
+go 1.17
