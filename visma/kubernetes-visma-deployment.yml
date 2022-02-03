@@ -4,7 +4,7 @@
   become: true
   user: root
 
-  task:
+  tasks:
   - name: create a deployment
     command: kubectl apply -f visma-deploy.yml
 
