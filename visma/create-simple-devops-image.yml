@@ -5,11 +5,13 @@
   tasks:
   - name: make build run
     command: make build run
-
-  - name: create docker image using war file
+    args:
+      chdir: /opt/k8s-lab/hiring-assignments/sre/dummy-pdf-or-png/
+      
+  - name: create docker image using file
     command: docker build -t dummy-pdf-or-png:latest .
     args:
-      chdir: /opt/k8s-lab
+      chdir: /opt/k8s-lab/hiring-assignments/sre/dummy-pdf-or-png/
       
   - name: Run docker container and expose port
     command: docker run --rm -it -p 3000:3000 dummy-pdf-or-png
