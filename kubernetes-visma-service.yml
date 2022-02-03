@@ -1,0 +1,9 @@
+---
+- name: Create service using deployment
+  hosts: kubernetes
+  become: true
+  user: root
+
+  task:
+  - name: create a service
+    command: kubectl apply -f visma-service.yml

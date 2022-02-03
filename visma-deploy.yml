@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: visma-deployment
+spec:
+  selector:
+    matchlabels:
+      app: visma-devops-project
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxtUnavailable: 1
+  
+  template:
+    metadata: 
+      labels:
+        app: visma-devops-project
+    spec:
+      containers:
+      - name: visma-devops-project
+        image: vivekk480/dummy-pdf-or-png
+        ImagePullPolicy: Always
+        ports:
+        - containerPort: 3000

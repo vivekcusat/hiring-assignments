@@ -1,0 +1,25 @@
+---
+- hosts: ansible-server
+  become: true
+
+  tasks:
+  - name: make build run
+    command: make build run
+
+  - name: create docker image using war file
+    command: docker build -t dummy-pdf-or-png:latest .
+    args:
+      chdir: /opt/k8s-lab
+      
+  - name: Run docker container and expose port
+    command: docker run --rm -it -p 3000:3000 dummy-pdf-or-png
+
+  - name: create tag to image
+    command: docker tag dummy-pdf-or-png vivekk480/dummy-pdf-or-png
+
+  - name: push image on to dockerhub
+    command: docker push vivekk480/dummy-pdf-or-png
+
+  - name: remove docker images form ansible server
+    command: docker rmi dummy-pdf-or-png:latest vivekk480/dummy-pdf-or-png
+    ignore_errors: yes
