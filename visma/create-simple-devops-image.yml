@@ -8,9 +8,6 @@
     args:
       chdir: /opt/k8s-lab/hiring-assignments/sre/dummy-pdf-or-png/
       
-  - name: Run docker container and expose port
-    command: docker run --rm -it -p 3000:3000 dummy-pdf-or-png
-
   - name: create tag to image
     command: docker tag dummy-pdf-or-png vivekk480/dummy-pdf-or-png
 
