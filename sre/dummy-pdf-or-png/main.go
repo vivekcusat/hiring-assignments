@@ -19,6 +19,15 @@ func serveRandomFile(w http.ResponseWriter, r *http.Request) {
 	}
 	http.ServeFile(w, r, "./corrupt-dummy.pdf")
 }
+func basicHomePage(w http.ResponseWriter, r *http.Request){
+    fmt.Fprintf(w, "Welcome to the Assignment home page!")
+    fmt.Println("Endpoint Hit: basicHomePage")
+}
+
+func newEndpoint() {
+    http.HandleFunc("/health", basicHomePage)
+    log.Fatal(http.ListenAndServe(":8081", nil))
+}
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
