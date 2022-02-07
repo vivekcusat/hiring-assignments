@@ -9,6 +9,12 @@ spec:
     app: visma-devops-project
   type: LoadBalancer
   ports:
-    - port: 3000
+    - name: actuator
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    - name: http
+      port: 3000
+      protocol: TCP
       targetPort: 3000
       nodePort: 31200
