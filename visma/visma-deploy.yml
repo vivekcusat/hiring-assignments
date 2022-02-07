@@ -24,3 +24,29 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
+          name: http
+          protocol: TCP
+        - containerPort: 8081
+          name: healthhttp
+          protocol: TCP
+
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8081
+            scheme: HTTP
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          successThreshold: 1
+          timeoutSeconds: 20
+        readinessProbe:
+          failureThreshold: 15
+          httpGet:
+            path: /health
+            port: 8081
+            scheme: HTTP
+          initialDelaySeconds: 30
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 20
